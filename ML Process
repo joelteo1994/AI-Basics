@@ -42,13 +42,15 @@ Using example of AI engineer working at real estate comapny looking to develop M
           - Collect from various sources, including internal (company's databases) and external (public housing records, other real estate websites) 
 
   (iii) Exploratory Data Analysis: Understand data at a visceral level, including its underlying structure, to identify key trends but also any potential issues 
-      - Key questions to answer include:         
-        - What factors seem to correlate most with house prices (i.e. multivariate correlation analysis)
-        - What are the distributions of these variables (e.g. univariate summary statistics) 
-        - Are there missing information that needs to be addressed? 
-        - Are there any outliers in the data? 
-        - Do we have enough data 
+    - Key objectives include 
+        - Checking data quality 
+            - Are there missing values, duplicate records, outliers that need to be addressed at the outset 
+        - Uncovering patterns, generating hypotheses and selecting features 
+            - What factors seem to correlate most with house prices (i.e. multivariate correlation analysis
+        - Providing initial data visualisation 
+            - What are the distributions of these variables (e.g. univariate summary statistics) 
       - Use Jupyter notebooks or other interactive environments to see code, visualisations, and narrative into a single document. With libraries such as Matplotlib and Seaborn 
+            - Main tools: Pandas (data manipulation and anaysis via DataFrames), NumPy, Seaborn, Matplotlib 
 
   (iv) Data Cleaning and Preprocessing. Transforming raw data into a cleaned version that can best yield results when fed into ML model. 
       - Data cleaning: fixing or removing incorrect, corrupted, or incomplete data within the dataset 
@@ -85,3 +87,7 @@ Using example of AI engineer working at real estate comapny looking to develop M
   (viii) Monitoring and Maintenance: keep eye on hwo it behaves over time and ensure continued accuracy (without model drifting)
       - Account for new data distributions (e.g. shifts in economic factors that can impact house price prediction model)
       - Can use metrics such as error rates 
+
+Other tips 
+ (1) Invest time to understand data dictionary before diving into data and building machine learning models. 
+    - Provides detailed information about each field in the dataset, including name and description 
