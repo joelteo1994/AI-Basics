@@ -1,0 +1,87 @@
+(1) Machine Learning: Union of AI and data science where algorithms are trained to learn from the data and make inferences/decisions without being explicitly programmed 
+    - Supervised learning: using labelled data to learn underlying (mathematical) relationships between target/dependent variable (label) and features/independent variables. 
+      Can be split into two types: regression (continuous target) and classification (discrete target)
+      - [Regression] predicting house prices based on historical data or levels of traffic congestion based on other features such as weather, accidents/special events, no. cars
+      - [Classification] Sort emails into spam or not spam, or images into cat, dog, bird, or recognising handwritten digits 
+        - Binary classification: two possible categories 
+        - Multiclass classification: >2 categories (e.g. identifying type of fruit in a picture). Model will predict likelihood of image belonging to each category
+    - Unsupervised learning: finding patterns or hidden structures based on unlabelled data. Model is given data without labels or correct answers, goal is to find patterns and structures 
+      within the data. 
+      - E.g. clustering algorithms that learn groups of customers based on their purchasing behaviour. Groups similar datapoints together without being explicitly told what these groups are
+        - Then user can infer what these clusters mean (based on the common characteristics within each group) 
+    - Reinforcement learning: models (agents) learn to make decisions by interacting with the environment and optimising their actions based on rewards or penalties 
+        - Mainly used in robotics, gaming, and autonomous systems 
+Note: AI > ML > DL > Gen AI 
+
+(2) Key application areas 
+    - Predictive analytics
+      - Email filtering out spam or not spam from online shopping 
+    - Recommendation Systems 
+    - Image / Text recognition (computer vision)
+
+
+(3) ML Lifecycle (flexible and iterative; insights gained at any point can prompt return to earlier stages for refinement). 
+Using example of AI engineer working at real estate comapny looking to develop ML model to predict house prices based on various factors such as size, location, no. bedrooms. 
+
+  (i) Problem Framing: most critical and ensures that ML product addresses real business need. Should have a well-defined problem statement, clear objectives aligned to business context 
+        - Clearly define what I am trying to achieve with my model and why (business context) 
+          - E.g. why is it important that the company wants to predict house prices? Is it to help agents set competitive prices or provide customers with better estimates 
+        - Break problem down into more specific questions 
+          - What data is needed to make accurate predictions 
+          - What features of houses are likely to impact their prices 
+        - What are constraints that we will likely face (e.g. availability of data, computational resources, or time limits)
+
+  (ii) Data Collection. Garbage in, garbage out. Focus on identifying and acquiring the data that best represents the features including house prices 
+       When collecting data, think about the format and structure, ensuring that it can be consolidated into a unified dataset for easier processing later
+        - Relevance: data collected must be directly relevant to the problem defined. Focus on those that we think have significant impact on housing prices. 
+          - Domain knowledge is key here 
+        - Quality: is the data accurate, complete (no missing values), and ethically collected
+        - Quantity: need sufficient volume to make machine learning algorithms more robust
+        - Diversity: capture broad range of scenarios and patterns 
+          - E.g. don't want to just have data on luxury homes in an upscale neighbourhood
+          - Collect from various sources, including internal (company's databases) and external (public housing records, other real estate websites) 
+
+  (iii) Exploratory Data Analysis: Understand data at a visceral level, including its underlying structure, to identify key trends but also any potential issues 
+      - Key questions to answer include:         
+        - What factors seem to correlate most with house prices (i.e. multivariate correlation analysis)
+        - What are the distributions of these variables (e.g. univariate summary statistics) 
+        - Are there missing information that needs to be addressed? 
+        - Are there any outliers in the data? 
+        - Do we have enough data 
+      - Use Jupyter notebooks or other interactive environments to see code, visualisations, and narrative into a single document. With libraries such as Matplotlib and Seaborn 
+
+  (iv) Data Cleaning and Preprocessing. Transforming raw data into a cleaned version that can best yield results when fed into ML model. 
+      - Data cleaning: fixing or removing incorrect, corrupted, or incomplete data within the dataset 
+        - E.g. typos, missing values, or duplicate entries, or formatting issues (e.g. 2000 vs 2000sqft)
+      - Data Preprocessing
+        - Feature engineering: creating new features, modifying existing ones, or selecting the most relevant features to help model better understand patterns in the data
+          - E.g. age of house = current year - build year 
+          - Needs a lot of domain knowledge 
+        - Feature scaling: especially numerical ones with different ranges, so that model won't mistakenly give too much importance to features with larger values 
+        - Encoding categorical data: turning text labels into numbers that model can understand (e.g. downtown, suburb, rural) e.g. by one-hot encoding 
+      Note: should do EDA first to inform data cleaning and preprocessing step 
+
+  (v) Model Development
+      - Modelling involves selecting ML algorithm, training the algorithm and evaluating its performance (on new/unseen data) 
+        - Develop baseline model (simple model) that provides a reference point to benchmark how other more complex models should perform 
+          - Also gives initial sense of whether dataset features are contributing to the predictive power of the model 
+          - Also gives sense if we are on the right track if baseline model has decent performance 
+  
+  (vi) Hyperparameter Tuning 
+      - Hyperparameters are "settings" or "configurations" that are set manually before the model is trained. Vis-a-vis model parameters which are learnt from the data during training
+        - E.g. tree depth of a decision tree, or no. trees in a random forest 
+        - Can significantly impact model performance 
+      - Tuning hyperparameters involves systematically adjusting these to find best combination that allows model to perform optimally 
+        - Key techniques include grid search and random search 
+      - Select final model after tuning that shows best performance, but also considering other factors such as run time (efficiency) or interpretability (ease of understanding_
+
+  (vii) Model Deployment: taking finely tuned model and putting it into action, to start making real-life predictions 
+      - Creating end-to-end pipeline that integrates all steps taken so far (data cleaning/preprocessing, model training and tuning, and prediction) into seamless process that can be 
+        automatically executed. Ensures that when new data comes in, it is processed the same way and predictions are made consistently and efficiently 
+        - In practice, use Python scripts to automate, including Scikit-learn's pipeline to chain together all the steps 
+      - After which, deploy model into a production environment (e.g. integrating into a web application, deploying onto server where can be accessed via API, or embedding into larger 
+        system e.g. real-estate platform that helps users estimate house prices in real-time)
+
+  (viii) Monitoring and Maintenance: keep eye on hwo it behaves over time and ensure continued accuracy (without model drifting)
+      - Account for new data distributions (e.g. shifts in economic factors that can impact house price prediction model)
+      - Can use metrics such as error rates 
